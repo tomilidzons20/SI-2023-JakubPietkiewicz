@@ -36,4 +36,9 @@ infoData = np.loadtxt("dane/_info-data-discrete.txt", dtype="str")
 #     print(f"{australianType[i][0]}: std = {np.std(tym)}")
 # print(f"Whole system: std = {np.std(wholeSystem)}")
 
-print("\n4\n")
+print("\n4a\n")
+x1, y1 = np.where(australianType == "n")
+for i in x1:
+    tym = np.array(australian[:, i], dtype='float')
+    print(tym)
+    pass
