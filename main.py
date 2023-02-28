@@ -46,3 +46,7 @@ for i in x1:
     srednia = np.round(srednia / len(tym), 2)
     print(srednia)
     break
+
+dataChoice = np.random.choice([True, False], size=australian.shape, p=[0.1, 0.9])
+australian[dataChoice] = "?"
+print(australian)
