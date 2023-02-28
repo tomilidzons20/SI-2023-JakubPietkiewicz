@@ -40,5 +40,9 @@ print("\n4a\n")
 x1, y1 = np.where(australianType == "n")
 for i in x1:
     tym = np.array(australian[:, i], dtype='float')
-    print(tym)
-    pass
+    srednia = 0
+    for j in tym:
+        srednia += j
+    srednia = np.round(srednia / len(tym), 2)
+    print(srednia)
+    break
