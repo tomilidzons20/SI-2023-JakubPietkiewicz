@@ -35,3 +35,5 @@ infoData = np.loadtxt("dane/_info-data-discrete.txt", dtype="str")
 #     wholeSystem = np.append(wholeSystem, tym)
 #     print(f"{australianType[i][0]}: std = {np.std(tym)}")
 # print(f"Whole system: std = {np.std(wholeSystem)}")
+
+print("\n4\n")
