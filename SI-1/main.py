@@ -2,7 +2,7 @@ import numpy as np
 
 australian = np.loadtxt("../dane/australian.txt", dtype="str")
 australian_type = np.loadtxt("../dane/australian-type.txt", dtype="str")
-infoData = np.loadtxt("../dane/_info-data-discrete.txt", dtype="str")
+info_data = np.loadtxt("../dane/_info-data-discrete.txt", dtype="str")
 
 # Zad 3a ==============================================================
 print("\n3a\n")
@@ -11,8 +11,8 @@ print("\n3a\n")
 
 # Zad 3b ==============================================================
 print("\n3b\n")
-x, y = np.where(infoData == "australian")
-decision_class_size = int(infoData[int(x)][2])
+x, y = np.where(info_data == "australian")
+decision_class_size = int(info_data[int(x)][2])
 print(f"wielkosc klas decyzyjnych = {decision_class_size}")
 
 # Zad 3c ==============================================================
