@@ -133,3 +133,38 @@ for i in x1:
         australian[j, i] = standarization_calc(meanai, varianceai, australian[j, i])
 
 np.savetxt("file4.txt", australian, fmt="%s")
+
+# Zad 4d ==============================================================
+print("\n4d\n")
+
+# wczytanie csv jako np.array
+data = np.loadtxt("../dane/Churn_Modelling.csv", delimiter=",", dtype="str")
+# usuniecie wiersza z podpisami kolumn
+data1 = np.delete(data, 0, axis=0)
+
+# wybranie kolumny geography i unikatowych elementow
+geography = data1[:, 4]
+uniqueAttributes = np.unique(geography)
+dummyVariables = []
+
+# stworzenie dummy variables
+for i, j in enumerate(uniqueAttributes):
+    dummyVariables.append(np.where(geography == j, "1", "0").tolist())
+dummyVariables = np.asarray(dummyVariables)
+
+# dodanie kolumn w miejsce kolumny geography
+tempData = data1[:, 0:4]
+tempData = np.insert(tempData, 4, dummyVariables[1], axis=1)
+tempData = np.insert(tempData, 5, dummyVariables[2], axis=1)
+tempData = np.append(tempData, data1[:, 5:], axis=1)
+
+# uzupelnienie rzedu z nazwami o dummy variables
+nameRow = data[0, :4]
+nameRow = np.insert(nameRow, 4, ["Geography.symbol2", "Geography.symbol3"], axis=0)
+nameRow = np.append(nameRow, data[0, 5:], axis=0)
+
+# dodanie rzedu z nazwami do tabeli
+tempData = np.insert(tempData, 0, nameRow, axis=0)
+
+# zapisanie pliku csv po zmianach
+np.savetxt("zad4d.csv", tempData, delimiter=",", fmt="%s")
