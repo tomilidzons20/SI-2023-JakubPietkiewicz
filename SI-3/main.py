@@ -10,6 +10,7 @@ y = np.array([6.5, 7.0, 7.4, 8.2, 9.0])
 model = LinearRegression().fit(x, y)
 
 y_pred1 = model.predict(x)
+print("Zad 1.1")
 print(f"Predicted response:\n{y_pred1}")
 
 year = 2020
@@ -20,6 +21,7 @@ print(f"Predicted response:\n{round(y_pred2[0], 3)}")
 
 years = np.array([2012, 2014, 2016, 2018, 2020, 2022, 2023]).reshape((-1, 1))
 y_pred3 = model.predict(years)
+print("Zad 1.2")
 print(f"Predicted response:\n{y_pred3}")
 print("In year 2023 percent will pass 12%")
 
@@ -136,4 +138,63 @@ def xor(x):
     print(p7)
 
 
+print("Zad 2.3")
 xor(inputs)
+
+
+# Zad 2.4
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def sigmoid_derivative(x):
+    return x * (1 - x)
+
+
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+y = np.array([[0], [1], [1], [0]])
+
+weights1 = 2 * np.random.random((2, 4)) - 1
+weights2 = 2 * np.random.random((4, 1)) - 1
+
+for i in range(40000):
+    layer1 = sigmoid(np.dot(X, weights1))
+    layer2 = sigmoid(np.dot(layer1, weights2))
+
+    layer2_error = y - layer2
+    layer2_gradient = layer2_error * sigmoid_derivative(layer2)
+
+    layer1_error = layer2_gradient.dot(weights2.T)
+    layer1_gradient = layer1_error * sigmoid_derivative(layer1)
+
+    weights2 += layer1.T.dot(layer2_gradient)
+    weights1 += X.T.dot(layer1_gradient)
+
+print("Zad 2.4")
+print(layer2)
+
+# Zad 2.5
+
+X = np.array([[0.6, 0.1], [0.2, 0.3]])
+y = np.array([[1], [0]])
+
+weights1 = np.array([[0.1, -0.2], [0, 0.2], [0.3, -0.4]])
+weights2 = np.array([[-0.4, 0.1, 0.6], [0.2, -0.1, -0.2]])
+
+learning_rate = 0.1
+for i in range(40000):
+    layer1 = sigmoid(np.dot(X, weights1.T))
+    layer2 = sigmoid(np.dot(layer1, weights2.T))
+
+    layer2_error = y - layer2
+    layer2_gradient = layer2_error * sigmoid_derivative(layer2)
+
+    layer1_error = layer2_gradient.dot(weights2)
+    layer1_gradient = layer1_error * sigmoid_derivative(layer1)
+
+    weights2 += layer1.T.dot(layer2_gradient).T * learning_rate
+    weights1 += X.T.dot(layer1_gradient).T * learning_rate
+
+print("Zad 2.5")
+print("Wyniki po uczeniu:")
+print(layer2)
