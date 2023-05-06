@@ -1,0 +1,67 @@
+Zad.1
+Dla Fig. 1 istnieje jeszcze jeden redukt decyzyjny inny niż {a, d}. Znajdź ten
+redukt decyzyjny.
+
+Redukt decyzyjny
+{b, c, d}
+
+Zad.2
+Zapisz wszystkie reguły wygenerowane z otrzymanego reduktu decyzyjnego.
+
+Reguła
+
+b=2 ∧ c=1 ∧ d=0 => dec=0
+b=2 ^ c=2 ∧ d=1 => dec=0
+b=0 ∧ c=2 ∧ d=1 => dec=1
+b=2 ∧ c=1 ∧ d=1 => dec=2
+
+Reguła po skróceniu
+
+            d=0 => dec=0
+b=2 ∧ c=2       => dec=0
+b=0             => dec=1
+b=2 ∧ c=1       => dec=2
+
+Zad.3
+Rozważ Fig. 2. (i) Znajdź opis dla X2 w odniesieniu do A. (ii) Znajdź podob-
+nie opis dla X1 i X2 w odniesieniu do B = {a1, a2}.
+
+(i)
+Dolna Aproksymacja:
+_X2A = ∪{[u]A : [u]A ⊆ X2} = {o5, o6, o8}
+
+Górna Aproksymacja:
+-X2A = ∪{[u]A : [u]A∩X2 =/= φ} = {o4, o5, o6, o8, o9}
+
+Opis:
+X2 jako: (_X2A, -X2A), gdzie opis dla pewnych przykładów (związane z _X2A):
+(a1=więcej niż średnia ∧ a2=daleki ∧ a3=silny) => dec=nie
+i opis dla możliwych przykładów (związane z -X2A \ _X2A) to:
+(a1=więcej niż średnia ∧ a2=daleki ∧ a3=lekki) => dec=nie
+
+(ii)
+Dla X1
+Dolna Aproksymacja:
+_X1B = ∪{[u]B : [u]B ⊆ X1} = {o1, o2, o3, o7}
+
+Górna Aproksymacja:
+-X1B = ∪{[u]B : [u]B∩X1 =/= φ} = {o1, o2, o3, o7, o6, o8, o9}
+
+Opis:
+X1 jako: (_X1B, -X1B), gdzie opis dla pewnych przykładów (związane z _X1B):
+(a1=wysoka ∧ a2=bliski) => dec=tak
+i opis dla możliwych przykładów (związane z -X1B \ _X1B) to:
+(a1=więcej niż średnia ∧ a2=daleki) => dec=tak
+
+Dla X2
+Dolna Aproksymacja:
+_X2B = ∪{[u]B : [u]B ⊆ X2} = {o5, o6, o8}
+
+Górna Aproksymacja:
+-X2B = ∪{[u]B : [u]B∩X2 =/= φ} = {o5, o6, o8}
+
+Opis:
+X2 jako: (_X2B, -X2B), gdzie opis dla pewnych przykładów (związane z _X2B):
+(a1=więcej niż średnia ∧ a2=daleki) => dec=nie
+i opis dla możliwych przykładów (związane z -X2B \ _X2B) to:
+(a1=więcej niż średnia ∧ a2=daleki) => dec=nie
