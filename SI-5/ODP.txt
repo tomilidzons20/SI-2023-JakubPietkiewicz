@@ -1,0 +1,68 @@
+1. Rozważmy sytuację z Example 1. Proszę sparwdzić czy KB |= α2 gdzie α2
+reprezentuje [2, 2] jest bezpieczne.
+
+α2 - modele gdzie [2, 2] jest bezpieczne
+KB - 2 modele gdzie [2, 2] jest niebezpieczne
+M(KB) ⊆ M(α2) - nieprawda, zatem KB |= α2 - nieprawda
+
+2. Sprawdź, czy podane zdania są logicznie równoważne. ¬(p∨(¬p∧q)) i ¬p∧¬q.
+
+¬(p∨(¬p∧q)) ≡ ¬p∧¬(¬p∧q) ≡ ¬p∧(p∨¬q) ≡ (¬p∧p)∨(¬p∧¬q) ≡ 0∨(¬p∧¬q) ≡ ¬p∧¬q
+L ≡ P
+
+3. Sprawdź, czy poniższe zdanie jest spełnialne.
+
+(i) (p ⇒ q) ⇒ (¬p ⇒ ¬q)
+p=0, q=0
+(0 ⇒ 0) ⇒ (¬0 ⇒ ¬0) ≡ 1 ⇒ (1 ⇒ 1) ≡ 1 ⇒ 1
+Zdanie jest spełnialne
+
+(ii) (p ⇒ q) ⇒ ((p ∧ r) ⇒ q)
+p=0, q=0, r=0
+(0 ⇒ 0) ⇒ ((0 ∧ 0) ⇒ 0) ≡ 1 ⇒ (0 ⇒ 0) ≡ 1 ⇒ 1
+Zdanie jest spełnialne
+
+4. Uzywając tabeli prawdziwości sprawdź czy (p ⇒ q) |= ((p ∧ r) ⇒ q).
+
+przypisanie | p q r || p ⇒ q || (p ∧ r) ⇒ q
+============================================
+  v1        | 0 0 0 ||   1   ||       1   
+  v2        | 0 0 1 ||   1   ||       1
+  v3        | 0 1 0 ||   1   ||       1
+  v4        | 0 1 1 ||   1   ||       1
+  v5        | 1 0 0 ||   0   ||       1
+  v6        | 1 0 1 ||   0   ||       0
+  v7        | 1 1 0 ||   1   ||       1
+  v8        | 1 1 1 ||   1   ||       1
+
+(p ⇒ q) jest konsekwencją semantyczną ((p ∧ r) ⇒ q)
+
+5. Uzywając tabeli prawdziwości znajdź CNF i DNF dla zdań w zadaniu 3.
+
+(i) (p ⇒ q) ⇒ (¬p ⇒ ¬q)
+
+  model     | p q || p ⇒ q | (¬p ⇒ ¬q) || (p ⇒ q) ⇒ (¬p ⇒ ¬q)
+============================================
+  v1        | 0 0 ||   1   |     1     ||         1
+  v2        | 0 1 ||   1   |     0     ||         0
+  v3        | 1 0 ||   0   |     1     ||         1
+  v4        | 1 1 ||   1   |     1     ||         1
+
+CNF: p ∨ ¬q
+DNF: (¬p ∧ ¬q) ∨ (p ∧ ¬q) ∨ (p ∧ q)
+
+(ii) (p ⇒ q) ⇒ ((p ∧ r) ⇒ q)
+
+  model     | p q r || p ⇒ q | ((p ∧ r) ⇒ q) || (p ⇒ q) ⇒ ((p ∧ r) ⇒ q)
+=========================================================================
+  v1        | 0 0 0 ||   1   |       1       ||            1
+  v2        | 0 0 1 ||   1   |       1       ||            1
+  v3        | 0 1 0 ||   1   |       1       ||            1
+  v4        | 0 1 1 ||   1   |       1       ||            1
+  v5        | 1 0 0 ||   0   |       1       ||            1
+  v6        | 1 0 1 ||   0   |       0       ||            1
+  v7        | 1 1 0 ||   1   |       1       ||            1
+  v8        | 1 1 1 ||   1   |       1       ||            1
+
+CNF: brak
+DNF: (¬p ∧ ¬q ∧ ¬r) ∨ (¬p ∧ ¬q ∧ r) ∨ (¬p ∧ q ∧ ¬r) ∨ (¬p ∧ q ∧ r) ∨ (p ∧ ¬q ∧ ¬r) ∨ (p ∧ ¬q ∧ r) ∨ (p ∧ q ∧ ¬r) ∨ (p ∧ q ∧ r)
