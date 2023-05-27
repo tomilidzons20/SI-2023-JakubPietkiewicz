@@ -55,13 +55,13 @@ i opis dla możliwych przykładów (związane z -X1B \ _X1B) to:
 
 Dla X2
 Dolna Aproksymacja:
-_X2B = ∪{[u]B : [u]B ⊆ X2} = {o5, o6, o8}
+_X2B = ∪{[u]B : [u]B ⊆ X2} = φ
 
 Górna Aproksymacja:
--X2B = ∪{[u]B : [u]B∩X2 =/= φ} = {o5, o6, o8}
+-X2B = ∪{[u]B : [u]B∩X2 =/= φ} = {o4, o5, o6, o8, o9}
 
 Opis:
 X2 jako: (_X2B, -X2B), gdzie opis dla pewnych przykładów (związane z _X2B):
-(a1=więcej niż średnia ∧ a2=daleki) => dec=nie
+brak
 i opis dla możliwych przykładów (związane z -X2B \ _X2B) to:
 (a1=więcej niż średnia ∧ a2=daleki) => dec=nie
